@@ -1,0 +1,19 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: {{ include "dfcomponent.fullname" . }}
+  namespace: {{ .Values.namespace }}
+spec:
+  type: {{ .Values.type }}
+  {{- with .Values.version }}
+  version: {{ .Values.version }}
+  {{- end }}
+  {{- with .Values.metadata }}
+  metadata:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+
+{{- with .Values.scopes }}
+scopes:
+  {{- toYaml . | nindent 2 }}
+{{- end }}

@@ -1,0 +1,12 @@
+nameOverride: ""
+fullnameOverride: ""
+
+namespace: default
+
+type: {}
+
+version: {}
+
+metadata: {}  
+
+scopes: {}
