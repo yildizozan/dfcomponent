@@ -4,10 +4,12 @@ metadata:
   name: {{ include "dfcomponent.fullname" . }}
   namespace: {{ .Values.namespace }}
 spec:
-  type: {{ .Values.type }}
-  {{- with .Values.version }}
   version: {{ .Values.version }}
+  
+  {{- with .Values.type }}
+  type: {{ .Values.type }}
   {{- end }}
+  
   {{- with .Values.metadata }}
   metadata:
     {{- toYaml . | nindent 4 }}
